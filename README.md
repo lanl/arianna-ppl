@@ -12,7 +12,7 @@ pip install git+https://github.com/lanl/arianna-ppl.git
 
 **uv**
 ```
-uv add  git+https://github.com/lanl/arianna-ppl.git
+uv add git+https://github.com/lanl/arianna-ppl.git
 ```
 
 ## Usage
