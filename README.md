@@ -174,13 +174,4 @@ As of 8 Jan 2025, `jupyter` does not work with the threaded version of python
 3.13 (3.13t). You can install `arianna` with python 3.13 or python 3.13t but
 you cannot install `jupyter` also. If you must use `jupyter`, use python 3.12.
 
-## Developer Notes
-
-### Updating versions
-1. Update version in `pyproject.toml`
-2. `uv sync`
-3. `git commit -am 'some message'`
-4. Update git tag 
-5. `git push --tags`
-
 [ci-status-img]: https://github.com/lanl/arianna-ppl/workflows/CI/badge.svg
