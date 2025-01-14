@@ -1,0 +1,72 @@
+[project]
+name = "arianna-ppl"
+dynamic = ["version"]
+description = "Arianna probabilistic programming language"
+readme = "README.md"
+authors = [
+    { name = "Arthur Lui", email = "alui@lanl.gov" }
+]
+maintainers = [{name="Arthur Lui", email="alui@lanl.gov"}]
+classifiers = [
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.13t",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=2.2.1",
+    "scipy>=1.15.0",
+    "tqdm>=4.65,<5.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/lanl/arianna"
+Documentation = "https://lanl.github.io/arianna"
+Repository = "https://github.com/lanl/arianna"
+Issues = "https://github.com/lanl/arianna/issues"
+Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+
+[build-system]
+requires = ["setuptools>=74.1", "setuptools-git-versioning>=2.0,<3"]
+build-backend = "setuptools.build_meta"
+
+[dependency-groups]
+dev = [
+    "emcee>=3.1.6",
+    "matplotlib>=3.10.0",
+    "pdoc>=15.0.1",
+    "pytest>=8.3.4",
+    "seaborn>=0.13.2",
+    "watchdog>=6.0.0",
+    # psutil (notebook dependency) does not yet work with 3.13t.
+    "notebook>=7.2.2; python_version < '3.13'",
+]
+
+[tool.setuptools-git-versioning]
+enabled = true
+
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.lint]
+ignore = ["D100"]
+extend-select = ["I", "D", "W505"]
+extend-unsafe-fixes = ["F401"]
+pydocstyle.convention = "numpy"
+pycodestyle.max-doc-length = 80
+
+# Ignore test file documentation linting.
+[tool.ruff.lint.extend-per-file-ignores]
+"tests/**/*.py" = ["D"]
+"demos/**/*.ipynb" = ["D"]
+
+[tool.pytest.ini_options]
+norecursedirs = ["venv", "build", ".git", "docs"]
+addopts = "-s"
+testpaths = [
+    "tests",
+]
