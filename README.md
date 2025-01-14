@@ -2,7 +2,7 @@
 
 [![CI Status][ci-status-img]](https://github.com/lanl/arianna-ppl/actions)
 
-A probabilistic programming language for python built on numpy.
+A probabilistic programming language for python built on `numpy`.
 
 ## Installation
 **pip**
