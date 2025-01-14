@@ -1,4 +1,5 @@
 # Arianna
+
 [![CI Status][ci-status-img]](https://github.com/lanl/arianna-ppl/actions)
 
 A probabilistic programming language for python built on numpy.
@@ -181,3 +182,5 @@ you cannot install `jupyter` also. If you must use `jupyter`, use python 3.12.
 3. `git commit -am 'some message'`
 4. Update git tag 
 5. `git push --tags`
+
+[ci-status-img]: https://github.com/luiarthur/arianna-ppl/workflows/CI/badge.svg
