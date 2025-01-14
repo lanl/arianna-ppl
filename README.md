@@ -1,15 +1,17 @@
 # Arianna
+[![CI Status][ci-status-img]](https://github.com/lanl/arianna-ppl/actions)
+
 A probabilistic programming language for python built on numpy.
 
 ## Installation
 **pip**
 ```
-pip install git+https://github.com/lanl/arianna.git
+pip install git+https://github.com/lanl/arianna-ppl.git
 ```
 
 **uv**
 ```
-uv add  git+https://github.com/lanl/arianna.git
+uv add  git+https://github.com/lanl/arianna-ppl.git
 ```
 
 ## Usage

@@ -24,11 +24,11 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/lanl/arianna"
-Documentation = "https://lanl.github.io/arianna"
-Repository = "https://github.com/lanl/arianna"
-Issues = "https://github.com/lanl/arianna/issues"
-Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+Homepage = "https://github.com/lanl/arianna-ppl"
+Documentation = "https://lanl.github.io/arianna-ppl"
+Repository = "https://github.com/lanl/arianna-ppl"
+Issues = "https://github.com/lanl/arianna-ppl/issues"
+Changelog = "https://github.com/lanl/arianna-ppl/blob/master/CHANGELOG.md"
 
 [build-system]
 requires = ["setuptools>=74.1", "setuptools-git-versioning>=2.0,<3"]
