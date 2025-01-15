@@ -3,10 +3,8 @@ name = "arianna-ppl"
 dynamic = ["version"]
 description = "Arianna probabilistic programming language"
 readme = "README.md"
-authors = [
-    { name = "Arthur Lui", email = "alui@lanl.gov" }
-]
-maintainers = [{name="Arthur Lui", email="alui@lanl.gov"}]
+authors = [ { name = "Arthur Lui", email = "alui@lanl.gov" } ]
+maintainers = [ { name="Arthur Lui", email = "alui@lanl.gov" } ]
 classifiers = [
     "Operating System :: OS Independent",
     "License :: OSI Approved :: MIT License",
