@@ -65,7 +65,7 @@ wheels = [
 
 [[package]]
 name = "arianna-ppl"
-version = "0.1.0.post14+git.6fdf13a9.dirty"
+version = "0.1.1"
 source = { editable = "." }
 dependencies = [
     { name = "numpy" },
