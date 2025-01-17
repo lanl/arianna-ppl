@@ -4,7 +4,7 @@ alias th := test-highest-versions
 alias tt := test-nogil
 alias t := test
 alias w := watch
-alias p := publish
+alias p := tag-and-publish
 alias d := docs
 alias s := serve
 alias r := recover-uvlock
@@ -76,14 +76,18 @@ fmt-py:
 fmt: fmt-self fmt-py
 
 lint:
-  ruff check --fix
+    ruff check --fix
 
 clean:
-  rm -rf src/*.egg-info src/arianna/__pycache__ src/arianna/*/__pycache__
-  rm -rf dist
+    rm -rf src/*.egg-info src/arianna/__pycache__ src/arianna/*/__pycache__
+    rm -rf dist
 
 build:
-  uv build
+    uv build
 
 publish: clean build
-  uv publish
+    uv publish
+
+tag-and-publish bump:
+    git up {{ bump }} -p
+    just publish
