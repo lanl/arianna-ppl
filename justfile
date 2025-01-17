@@ -4,7 +4,7 @@ alias th := test-highest-versions
 alias tt := test-nogil
 alias t := test
 alias w := watch
-alias p := python
+alias p := publish
 alias d := docs
 alias s := serve
 alias r := recover-uvlock
@@ -81,3 +81,9 @@ lint:
 clean:
   rm -rf src/*.egg-info src/arianna/__pycache__ src/arianna/*/__pycache__
   rm -rf dist
+
+build:
+  uv build
+
+publish: clean build
+  uv publish

@@ -7,12 +7,12 @@ A probabilistic programming language for python built on `numpy`.
 ## Installation
 **pip**
 ```
-pip install git+https://github.com/lanl/arianna-ppl.git
+pip install arianna-ppl
 ```
 
 **uv**
 ```
-uv add git+https://github.com/lanl/arianna-ppl.git
+uv add arianna-ppl
 ```
 
 ## Usage

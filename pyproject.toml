@@ -68,5 +68,7 @@ testpaths = [
     "tests",
 ]
 
+# This is a workaround due to https://github.com/astral-sh/uv/issues/9513.
+# When setuptools is fixed, this can be removed. (1/16/2025)
 [tool.setuptools]
 license-files = []
