@@ -5,6 +5,8 @@
 A probabilistic programming language for python built on `numpy`.
 
 ## Installation
+To install from PyPI:
+
 **pip**
 ```
 pip install arianna-ppl
@@ -15,13 +17,15 @@ pip install arianna-ppl
 uv add arianna-ppl
 ```
 
-For the absolute latest version on `main`, do
+To install the absolute latest version from `main`:
 
+**pip**
 ```
-# If using pip:
 pip install git+https://github.com/lanl/arianna-ppl.git
+```
 
-# If using uv:
+**uv**
+```
 uv add git+https://github.com/lanl/arianna-ppl.git
 ```
 

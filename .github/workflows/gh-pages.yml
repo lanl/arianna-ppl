@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  build-docs:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,6 +16,7 @@ jobs:
       - name: Install UV
         uses: astral-sh/setup-uv@v5
         with:
+          version: "0.5.20"
           python-version: '3.10'
 
       - name: Generate documentation
@@ -29,7 +30,7 @@ jobs:
           path: docs/
 
   deploy:
-    needs: build
+    needs: build-docs
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
