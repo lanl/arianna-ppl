@@ -20,4 +20,4 @@ jobs:
 
       # retrieve your distributions here
       - name: Publish package distributions to PyPI
-        uses: uv build && uv publish
+        run: uv build && uv publish
