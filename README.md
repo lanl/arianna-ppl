@@ -18,7 +18,10 @@ uv add arianna-ppl
 For the absolute latest version on `main`, do
 
 ```
+# If using pip:
 pip install git+https://github.com/lanl/arianna-ppl.git
+
+# If using uv:
 uv add git+https://github.com/lanl/arianna-ppl.git
 ```
 
