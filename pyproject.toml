@@ -68,3 +68,6 @@ addopts = "-s"
 testpaths = [
     "tests",
 ]
+
+[tool.setuptools]
+license-files = []
