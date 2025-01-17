@@ -15,6 +15,14 @@ pip install arianna-ppl
 uv add arianna-ppl
 ```
 
+For the absolute latest version on `main`, do
+
+```
+pip install git+https://github.com/lanl/arianna-ppl.git
+uv add git+https://github.com/lanl/arianna-ppl.git
+```
+
+
 ## Usage
 
 **Model Specification (linear regression)**
