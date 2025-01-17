@@ -41,6 +41,7 @@ dev = [
     "watchdog>=6.0.0",
     # psutil (notebook dependency) does not yet work with 3.13t.
     "notebook>=7.2.2; python_version < '3.13'",
+    "bumpy",
 ]
 
 [tool.setuptools-git-versioning]
@@ -72,3 +73,6 @@ testpaths = [
 # When setuptools is fixed, this can be removed. (1/16/2025)
 [tool.setuptools]
 license-files = []
+
+[tool.uv.sources]
+bumpy = { git = "https://github.com/luiarthur/bumpy" }

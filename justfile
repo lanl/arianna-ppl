@@ -89,5 +89,5 @@ publish: clean build
     uv publish
 
 tag-and-publish bump:
-    git up {{ bump }} -p
+    uv run bumpy {{ bump }} -p
     just publish
