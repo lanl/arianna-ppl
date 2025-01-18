@@ -195,6 +195,6 @@ but you cannot install `jupyter` also. If you must use `jupyter`, use python
 ## LANL Software Release Information
 - O4856
 
-[ci-status-img]: https://img.shields.io/github/actions/workflow/status/lanl/arianna-ppl/CI.yml?style=flat-square&labelColor=black
-[pypi-version]: https://img.shields.io/pypi/v/arianna-ppl?style=flat-square&labelColor=black
-[pypi-downloads]: https://img.shields.io/pypi/dm/arianna-ppl?style=flat-square&labelColor=black
+[ci-status-img]: https://img.shields.io/github/actions/workflow/status/lanl/arianna-ppl/CI.yml?style=flat-square
+[pypi-version]: https://img.shields.io/pypi/v/arianna-ppl?style=flat-square
+[pypi-downloads]: https://img.shields.io/pypi/dm/arianna-ppl?style=flat-square
