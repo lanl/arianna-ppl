@@ -185,9 +185,10 @@ ynew = Chain(
 See [demos](demos/).
 
 ## Threading
-As of 8 Jan 2025, `jupyter` does not work with the threaded (no-gil) version of python
-3.13 (3.13t). You can install `arianna` with python 3.13 or python 3.13t but
-you cannot install `jupyter` also. If you must use `jupyter`, use python 3.12.
+As of 8 Jan 2025, `jupyter` does not work with the threaded (no-gil) version of
+python 3.13 (3.13t). You can install `arianna` with python 3.13 or python 3.13t
+but you cannot install `jupyter` also. If you must use `jupyter`, use python
+3.10, 3.11, 3.12, 3.13 (but not 3.13t).
 
 ## LANL Software Release Information
 - O4856
