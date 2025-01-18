@@ -93,9 +93,9 @@ publish: clean build
 
 # Deprecate. Now done by GitHub Actions.
 tag-and-publish bump:
-    uv run bumpy {{ bump }} -p
+    uv run bump {{ bump }} -p
     just publish
 
 # Update git tag and push tag. GitHub Actions will then publish to PyPI.
 bump kind:
-    uv run bumpy {{ kind }} -p
+    uv run bump {{ kind }} -p
