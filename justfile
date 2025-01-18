@@ -10,6 +10,7 @@ alias s := serve
 alias r := recover-uvlock
 alias f := fmt
 alias c := clean
+alias b := bump
 
 @default:
     just -u -l
@@ -82,12 +83,19 @@ clean:
     rm -rf src/*.egg-info src/arianna/__pycache__ src/arianna/*/__pycache__
     rm -rf dist
 
+# Deprecate. Now done by GitHub Actions.
 build:
     uv build
 
+# Deprecate. Now done by GitHub Actions.
 publish: clean build
     uv publish
 
+# Deprecate. Now done by GitHub Actions.
 tag-and-publish bump:
     uv run bumpy {{ bump }} -p
     just publish
+
+# Update git tag and push tag. GitHub Actions will then publish to PyPI.
+bump kind:
+    uv run bumpy {{ kind }} -p
