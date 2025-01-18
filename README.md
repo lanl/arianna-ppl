@@ -1,8 +1,8 @@
 # Arianna
 
 [![CI Status][ci-status-img]](https://github.com/lanl/arianna-ppl/actions)
-[![PyPI Downloads](https://img.shields.io/pypi/dm/arianna-ppl.svg?label=PyPI%20downloads)](
-https://pypi.org/project/arianna-ppl/)
+[![PyPI Version][pypi-version]](https://pypi.org/project/arianna-ppl/)
+[![PyPI Downloads][pypi-downloads]](https://pypi.org/project/arianna-ppl/)
 
 A probabilistic programming language for python built on `numpy`.
 
@@ -195,4 +195,6 @@ but you cannot install `jupyter` also. If you must use `jupyter`, use python
 ## LANL Software Release Information
 - O4856
 
-[ci-status-img]: https://github.com/lanl/arianna-ppl/workflows/CI/badge.svg
+[ci-status-img]: https://img.shields.io/github/actions/workflow/status/lanl/arianna-ppl/CI.yml?style=flat-square&labelColor=black
+[pypi-version]: https://img.shields.io/pypi/v/arianna-ppl?style=flat-square&labelColor=black
+[pypi-downloads]: https://img.shields.io/pypi/dm/arianna-ppl?style=flat-square&labelColor=black
