@@ -1,6 +1,8 @@
 # Arianna
 
 [![CI Status][ci-status-img]](https://github.com/lanl/arianna-ppl/actions)
+[![PyPI Downloads](https://img.shields.io/pypi/dm/arianna-ppl.svg?label=PyPI%20downloads)](
+https://pypi.org/project/arianna-ppl/)
 
 A probabilistic programming language for python built on `numpy`.
 
