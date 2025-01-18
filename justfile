@@ -1,10 +1,11 @@
+set windows-shell := ['powershell.exe', '-NoProfile', '-Command']
+
 alias ta := test-all
 alias tl := test-lowest-versions
 alias th := test-highest-versions
 alias tt := test-nogil
 alias t := test
 alias w := watch
-alias p := tag-and-publish
 alias d := docs
 alias s := serve
 alias r := recover-uvlock
@@ -82,19 +83,6 @@ lint:
 clean:
     rm -rf src/*.egg-info src/arianna/__pycache__ src/arianna/*/__pycache__
     rm -rf dist
-
-# Deprecate. Now done by GitHub Actions.
-build:
-    uv build
-
-# Deprecate. Now done by GitHub Actions.
-publish: clean build
-    uv publish
-
-# Deprecate. Now done by GitHub Actions.
-tag-and-publish bump:
-    uv run bump {{ bump }} -p
-    just publish
 
 # Update git tag and push tag. GitHub Actions will then publish to PyPI.
 bump kind:
