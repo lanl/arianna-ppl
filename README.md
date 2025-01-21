@@ -7,7 +7,7 @@
 A probabilistic programming language for python built on `numpy`.
 
 ## Installation
-To install from PyPI:
+To install from PyPI (recommended):
 
 **pip**
 ```
@@ -197,4 +197,5 @@ but you cannot install `jupyter` also. If you must use `jupyter`, use python
 
 [ci-status-img]: https://img.shields.io/github/actions/workflow/status/lanl/arianna-ppl/CI.yml?style=flat-square&label=CI
 [pypi-version]: https://img.shields.io/pypi/v/arianna-ppl?style=flat-square&label=PyPI
-[pypi-downloads]: https://img.shields.io/pypi/dm/arianna-ppl?style=flat-square&label=Downloads
+[pypi-downloads]: https://img.shields.io/pypi/dm/arianna-ppl?style=flat-square&label=Downloads&color=blue
+
