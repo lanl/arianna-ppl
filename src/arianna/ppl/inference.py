@@ -6,8 +6,8 @@ from typing import (
     Any,
     Callable,
     Concatenate,
-    Generator,
     Iterable,
+    Iterator,
     Optional,
     ParamSpec,
 )
@@ -56,7 +56,7 @@ class Chain:
         self.states = list(states)
         self.names = list(self.states[0].keys())
 
-    def __iter__(self):
+    def __iter__(self) -> Iterator[State]:
         """Iterate over states.
 
         Yields
@@ -140,7 +140,7 @@ class MCMC(InferenceEngine):
     logprob_history: list[float]
 
     @abstractmethod
-    def _fit(self, *args, **kwargs) -> Generator[State, None, None]:
+    def _fit(self, *args, **kwargs) -> Iterator[State]:
         pass
 
     @abstractmethod
@@ -203,7 +203,7 @@ class SingleWalkerMCMC(MCMC):
 
     def _fit(
         self, nsamples: int, burn: int = 0, thin: int = 1
-    ) -> Generator[State, None, None]:
+    ) -> Iterator[State]:
         self.nsamples = nsamples
         self.burn = burn
         self.thin = thin
@@ -449,7 +449,7 @@ class AffineInvariantMCMC(MCMC):
 
     def _fit(
         self, nsteps: int, burn: int = 0, thin: int = 1
-    ) -> Generator[State, None, None]:
+    ) -> Iterator[State]:
         self.nsteps = nsteps
         self.nsamples = nsteps * self.nwalkers
         self.burn = burn
@@ -745,6 +745,8 @@ class LaplaceApproximation(InferenceEngine):
         model: Model,
         transform: bool = True,
         rng: Optional[RNG] = None,
+        init_state: Optional[State] = None,
+        transformed_init_state: Optional[State] = None,
         **model_data,
     ):
         self.model = model
@@ -753,11 +755,15 @@ class LaplaceApproximation(InferenceEngine):
         self.transform = transform
 
         if self.transform:
-            self.init_state = TransformedPredictive.run(
-                model, rng=rng, return_cached=False, **self.model_data
+            self.init_state = (
+                transformed_init_state
+                or TransformedPredictive.run(
+                    model, rng=rng, return_cached=False, **self.model_data
+                )
             )
+
         else:
-            self.init_state = Predictive.run(
+            self.init_state = init_state or Predictive.run(
                 model, rng=rng, return_cached=False, **self.model_data
             )
 
