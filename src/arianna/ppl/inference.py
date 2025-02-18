@@ -554,13 +554,16 @@ class AIES(AffineInvariantMCMC):
             temperature_fn or self.default_temperature_fn
         )
         predictive = TransformedPredictive if transform else Predictive
-        if init_state is None:
-            init_state = [
-                predictive.run(
-                    model, rng=rng, return_cached=False, **model_data
-                )
-                for _ in range(self.nwalkers)
-            ]
+        init_state = [
+            predictive.run(
+                model,
+                rng=rng,
+                state={} if init_state is None else init_state[i],
+                return_cached=False,
+                **model_data,
+            )
+            for i in range(self.nwalkers)
+        ]
         self.init_state = init_state
 
     def step(self) -> tuple[list[float], list[State]]:
@@ -746,7 +749,6 @@ class LaplaceApproximation(InferenceEngine):
         transform: bool = True,
         rng: Optional[RNG] = None,
         init_state: Optional[State] = None,
-        transformed_init_state: Optional[State] = None,
         **model_data,
     ):
         self.model = model
@@ -755,16 +757,21 @@ class LaplaceApproximation(InferenceEngine):
         self.transform = transform
 
         if self.transform:
-            self.init_state = (
-                transformed_init_state
-                or TransformedPredictive.run(
-                    model, rng=rng, return_cached=False, **self.model_data
-                )
+            self.init_state = TransformedPredictive.run(
+                model,
+                rng=rng,
+                return_cached=False,
+                state=init_state,
+                **self.model_data,
             )
 
         else:
-            self.init_state = init_state or Predictive.run(
-                model, rng=rng, return_cached=False, **self.model_data
+            self.init_state = Predictive.run(
+                model,
+                rng=rng,
+                state=init_state,
+                return_cached=False,
+                **self.model_data,
             )
 
         self.shaper = Shaper.from_state(self.init_state)
