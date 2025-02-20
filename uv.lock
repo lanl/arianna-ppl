@@ -68,6 +68,7 @@ name = "arianna-ppl"
 source = { editable = "." }
 dependencies = [
     { name = "numpy" },
+    { name = "pandas" },
     { name = "scipy" },
     { name = "tqdm" },
 ]
@@ -87,6 +88,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "numpy", specifier = ">=2.2.1" },
+    { name = "pandas", specifier = ">=2.2.3" },
     { name = "scipy", specifier = ">=1.15.0" },
     { name = "tqdm", specifier = ">=4.65,<5.0.0" },
 ]

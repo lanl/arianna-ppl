@@ -13,6 +13,7 @@ from typing import (
 )
 
 import numpy as np
+import pandas as pd
 from numpy import ndarray
 from numpy.random import Generator as RNG
 from numpy.random import default_rng
@@ -114,6 +115,30 @@ class Chain:
             every `thin`-th sample.
         """
         return Chain(self.states[burn::thin])
+
+    def summary(self):
+        """Summarize MCMC samples.
+
+        Requires static dimensions throughout MCMC.
+        """
+        table = {}
+        for name in self.names:
+            post = self.get(name)
+            if post.ndim > 1:
+                for indices, _ in np.ndenumerate(post[0]):
+                    idx_str = ",".join(str(idx) for idx in indices)
+                    indexed_name = f"{name}[{idx_str}]"
+                    value = post[(slice(None),) + indices]
+                    table[indexed_name] = value
+            else:
+                table[name] = post
+
+        return (
+            pd.DataFrame(table)
+            .describe(percentiles=[0.025, 0.5, 0.975])
+            .drop("count", axis=0)
+            .T
+        )
 
 
 class InferenceEngine(ABC):
