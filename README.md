@@ -7,7 +7,6 @@
 A probabilistic programming language (PPL) for python built on `numpy`.
 
 ## Installation
-To install from PyPI (recommended):
 
 **pip**
 ```
@@ -19,17 +18,7 @@ pip install arianna-ppl
 uv add arianna-ppl
 ```
 
-To install the absolute latest version from `main`:
-
-**pip**
-```
-pip install git+https://github.com/lanl/arianna-ppl.git
-```
-
-**uv**
-```
-uv add git+https://github.com/lanl/arianna-ppl.git
-```
+A conda package is not currently available for `arianna`.
 
 ## Why `arianna`?
 
