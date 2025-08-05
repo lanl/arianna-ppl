@@ -4,7 +4,7 @@
 [![PyPI Version][pypi-version]](https://pypi.org/project/arianna-ppl/)
 [![PyPI Downloads][pypi-downloads]](https://pypistats.org/packages/arianna-ppl)
 
-A probabilistic programming language for python built on `numpy`.
+A probabilistic programming language (PPL) for python built on `numpy`.
 
 ## Installation
 To install from PyPI (recommended):
@@ -31,6 +31,16 @@ pip install git+https://github.com/lanl/arianna-ppl.git
 uv add git+https://github.com/lanl/arianna-ppl.git
 ```
 
+## Why `arianna`?
+
+Many PPLs require automatic differentiation, and so require that likelihoods
+and priors contain code from special frameworks like `torch` or `tensorflow`.
+`arianna` is written in `numpy` and doesn't use automatic differentiation.
+This is indeed a limitation for models with many parameters. However, for
+simple models with few parameters but that may include a black-box function
+that cannot be differentiated, `arianna` can be used without resorting to
+custom MCMC implementations to provide insights quickly while sketching out
+models.
 
 ## Usage
 
