@@ -32,4 +32,4 @@ jobs:
           version: "0.8.13"
           python-version: ${{ matrix.python-version }}
       - name: Run tests
-        run: uv run --with pytest@8.3.4 --no-dev pytest -s
+        run: uv run --with 'pytest==8.3.4' --no-dev pytest -s
