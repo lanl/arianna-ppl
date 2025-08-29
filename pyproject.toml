@@ -5,9 +5,9 @@ description = "Arianna probabilistic programming language"
 readme = "README.md"
 authors = [ { name = "Arthur Lui", email = "alui@lanl.gov" } ]
 maintainers = [ { name="Arthur Lui", email = "alui@lanl.gov" } ]
+license = "MIT"
 classifiers = [
     "Operating System :: OS Independent",
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -43,6 +43,7 @@ dev = [
     # psutil (notebook dependency) does not yet work with 3.13t.
     "notebook>=7.2.2; python_version < '3.13'",
     "bump-cli>=0.3.0",
+    "pre-commit>=4.3.0",
 ]
 
 [tool.setuptools-git-versioning]
@@ -69,8 +70,3 @@ addopts = "-s"
 testpaths = [
     "tests",
 ]
-
-# This is a workaround due to https://github.com/astral-sh/uv/issues/9513.
-# When setuptools is fixed, this can be removed. (1/16/2025)
-[tool.setuptools]
-license-files = []
