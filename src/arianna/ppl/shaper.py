@@ -1,3 +1,8 @@
+"""shaper.
+
+Class for tracking parameter shapes
+"""
+
 import numpy as np
 
 from arianna.types import State

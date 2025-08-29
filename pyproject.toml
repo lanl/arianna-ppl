@@ -52,17 +52,22 @@ enabled = true
 [tool.ruff]
 line-length = 80
 
+[tool.ruff.format]
+preview = true
+
 [tool.ruff.lint]
-ignore = ["D100"]
+ignore = ["D101", "D102"]  # TODO: prioritize these.
 extend-select = ["I", "D", "W505"]
-extend-unsafe-fixes = ["F401"]
+# extend-unfixable = ["F401"]
 pydocstyle.convention = "numpy"
 pycodestyle.max-doc-length = 80
+preview = false
 
 # Ignore test file documentation linting.
 [tool.ruff.lint.extend-per-file-ignores]
 "tests/**/*.py" = ["D"]
 "demos/**/*.ipynb" = ["D"]
+"src/arianna/__init__.py" = ["D400", "D205"]
 
 [tool.pytest.ini_options]
 norecursedirs = ["venv", "build", ".git", "docs"]

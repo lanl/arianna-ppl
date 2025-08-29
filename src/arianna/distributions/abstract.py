@@ -1,3 +1,8 @@
+"""abstract.
+
+Abstract classes for implementing distributions.
+"""
+
 from abc import ABC, abstractmethod
 from functools import cached_property
 

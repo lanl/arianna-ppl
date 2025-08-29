@@ -1,3 +1,8 @@
+"""context.
+
+Classes for managing context of a running probabistic program.
+"""
+
 from abc import ABC, abstractmethod
 from typing import Any, Optional, Protocol
 
@@ -10,6 +15,12 @@ from arianna.types import NegativeInfinityError, Numeric, Shape, State
 
 
 class BasicDistribution(Protocol):
+    """BasicDistribution.
+
+    Defines methods to expect for a basic distribution.
+    Used mostly for duck typing.
+    """
+
     def logpdf(self, x: Numeric) -> Numeric: ...
     def sample(
         self, sample_shape: Shape = (), rng: RNG = default_rng()
@@ -17,6 +28,12 @@ class BasicDistribution(Protocol):
 
 
 class TransformableDistribution(BasicDistribution):
+    """TransformableDistribution.
+
+    Defines methods expected for distributions that can be transformed into the
+    reals.
+    """
+
     def logdetjac(self, z: Numeric) -> Numeric: ...
 
     def logpdf_plus_logdetjac(self, z: Numeric) -> Numeric: ...
@@ -35,6 +52,11 @@ class TransformableDistribution(BasicDistribution):
 # returns the model log probability and trace. (Note that a trace is the state
 # in the native space and also includes cached values.)
 class Context(ABC):
+    """Context.
+
+    Manages context (or expected action) for a statistical model.
+    """
+
     result: Any
     state: State
 
@@ -55,6 +77,12 @@ class Context(ABC):
 
 
 class LogprobAndPriorSample(Context):
+    """LogprobAndPriorSample.
+
+    Defines, for a probabilistic model, the context to be computing a log
+    probability and returning a prior sample.
+    """
+
     @classmethod
     def run(
         cls, model, rng: Optional[RNG] = None, **data
@@ -87,6 +115,12 @@ class LogprobAndPriorSample(Context):
 
 
 class LogprobAndTrace(Context):
+    """LogprobAndTrace.
+
+    Defines, for a probabilistic model, the context to be computing a log
+    probability and returning the trace.
+    """
+
     @classmethod
     def run(cls, model, state: State, **data) -> tuple[float, State]:
         """TODO.
@@ -144,6 +178,12 @@ class LogprobAndTrace(Context):
 
 
 class Predictive(Context):
+    """Predictive.
+
+    Defines, for a probabilistic model, the context to be sampling
+    from the predictive distribution.
+    """
+
     @classmethod
     def run(
         cls,
@@ -207,7 +247,7 @@ class Predictive(Context):
 
 
 class TransformedLogprobAndTrace(Context):
-    """TODO.
+    """TransformedLogprobAndTrace.
 
     Calculates the transformed log probability for a given state (on the real
     space) and also returns the state in the native space.
@@ -362,6 +402,12 @@ class TransformedPredictive(Context):
 
 
 class LogprobAndLogjacobianAndTrace(Context):
+    """LogprobAndLogjacobianAndTrace.
+
+    Defines, for a probabilistic model, the context to be computing a log
+    probability, log jacobian, and returning the trace.
+    """
+
     @classmethod
     def run(cls, model, state: State, **data) -> tuple[float, float, State]:
         ctx = cls(state)

@@ -1,3 +1,8 @@
+"""diagnostics.
+
+Diagonstics for fitted statistical models
+"""
+
 import numpy as np
 
 

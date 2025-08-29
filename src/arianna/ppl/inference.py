@@ -1,3 +1,8 @@
+"""inference.
+
+Classes for statistical inference
+"""
+
 from abc import ABC, abstractmethod
 from concurrent.futures import Executor
 from copy import deepcopy
@@ -465,9 +470,9 @@ class AffineInvariantMCMC(MCMC):
             index = self.rng.choice(
                 len(weights), rebalanced_samples, replace=True, p=weights
             )
-            self.resampled_logprob_history = np.array(
-                [self.logprob_history[i] for i in index]
-            )
+            self.resampled_logprob_history = np.array([
+                self.logprob_history[i] for i in index
+            ])
             chain = Chain(chain.states[i] for i in index)
 
         return chain

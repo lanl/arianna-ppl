@@ -1,3 +1,8 @@
+"""distributions.
+
+Common distributions used in statistical analyses.
+"""
+
 from functools import cached_property
 from typing import Optional
 
