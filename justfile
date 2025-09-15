@@ -39,7 +39,7 @@ test-lowest-versions *flags:
         pytest -s {{ if flags == "-dw" { "--disable-warnings" } else { "" } }}
 
 test-highest-versions *flags:
-    uv run --resolution=highest --python=3.13 --isolated \
+    uv run --resolution=highest --python=3.14 --isolated \
         pytest -s {{ if flags == "-dw" { "--disable-warnings" } else { "" } }}
 
 test-nogil *flags:
