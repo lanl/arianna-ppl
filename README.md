@@ -183,7 +183,7 @@ ynew = Chain(
 ).get("y")
 ```
 
-See [demos](demos/).
+See [demos][arianna-demos]
 
 ## Threading
 As of 8 Jan 2025, `jupyter` does not work with the threaded (no-gil) version of
@@ -197,4 +197,4 @@ but you cannot install `jupyter` also. If you must use `jupyter`, use python
 [ci-status-img]: https://img.shields.io/github/actions/workflow/status/lanl/arianna-ppl/CI.yml?style=flat-square&label=CI
 [pypi-version]: https://img.shields.io/pypi/v/arianna-ppl?style=flat-square&label=PyPI
 [pypi-downloads]: https://img.shields.io/pypi/dm/arianna-ppl?style=flat-square&label=Downloads&color=blue
-
+[arianna-demos]: https://github.com/lanl/arianna-ppl/tree/main/demos
