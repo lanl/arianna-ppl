@@ -528,8 +528,8 @@ class AIES(AffineInvariantMCMC):
 
     This sampler is good for target distributions that are not multimodal and
     separated by large low density regions. You should use as many walkers as
-    you can afford. Whereas this sampler employs walkers that are sequeutnailly
-    updated.  there is a parallel analog that updates walkers in parallel.
+    you can afford. Whereas this sampler employs walkers that are sequentially
+    updated. There is a parallel analog that updates walkers in parallel.
 
     Parameters
     ----------
