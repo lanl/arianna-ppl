@@ -17,7 +17,10 @@ from scipy.special import (
     gdtr,
     gdtrc,
     log_ndtr,
+    logit,
     ndtr,
+    xlog1py,
+    xlogy,
 )
 
 from arianna.types import NegativeParameterError
@@ -30,6 +33,7 @@ from .abstract import (
     Numeric,
     Positive,
     Shape,
+    Univariate,
     UnivariateReal,
 )
 
@@ -633,3 +637,37 @@ class Dirichlet(MultivariateContinuous):
     @cached_property
     def std(self) -> ndarray:
         return np.sqrt(self.var)
+
+
+class Bernoulli(Univariate):
+    """Bernoulli distribution parameterized by logits (log-odds)."""
+
+    def __init__(self, p):
+        self.p = p
+
+    @cached_property
+    def logits(self):
+        return logit(self.p)
+
+    @cached_property
+    def event_shape(self):
+        return ()
+
+    @cached_property
+    def batch_shape(self):
+        return np.shape(self.p)
+
+    def logpdf(self, x):
+        x = np.asarray(x)
+        return xlogy(x, self.p) + xlog1py(1 - x, -self.p)
+
+    def _sample(self, size: Shape, rng: RNG) -> ndarray:
+        return rng.binomial(1, self.p, size=size)
+
+    @cached_property
+    def mean(self):
+        return self.p
+
+    @cached_property
+    def var(self):
+        return self.p * (1.0 - self.p)

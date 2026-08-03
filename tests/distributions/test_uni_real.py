@@ -255,3 +255,23 @@ class TestNormal(AbstractTestUnivariateContinuous):
     @cached_property
     def cdf_truth(self):
         return stats.norm.cdf(self.x, loc=self.d.loc, scale=self.d.scale)
+
+
+class TestBernoulli:
+    def test_logpdf_matches_scipy(self):
+        p = np.array([0.2, 0.8])
+        x = np.array([[0, 1], [1, 0]])
+
+        d = dist.Bernoulli(p)
+
+        assert_allclose(d.logpdf(x), stats.bernoulli.logpmf(x, p))
+
+    def test_logpdf_is_stable_at_boundary_probabilities(self):
+        p = np.array([0.0, 1.0, 0.0, 1.0])
+        x = np.array([0, 1, 1, 0])
+
+        d = dist.Bernoulli(p)
+        result = d.logpdf(x)
+
+        assert_allclose(result[:2], np.array([0.0, 0.0]))
+        assert np.all(np.isneginf(result[2:]))
